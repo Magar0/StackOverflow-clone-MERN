@@ -24,7 +24,7 @@ const getAllUsers = async (req, res) => {
 
 
 const updateProfile = async (req, res) => {
-    const { id: _id } = req.params;
+    const _id = req.userId;
     const { name, about, tags, password } = req.body;
     if (!mongoose.Types.ObjectId.isValid(_id)) {
         return res.status(404).json({ message: "User unavailable" })

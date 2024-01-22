@@ -22,12 +22,12 @@ const EditProfile = ({ user, cancelEditing }) => {
         let dataToBeUpdated;
         if (switchEdit === "profile") {
             dataToBeUpdated = {
-                id: user._id,
                 name,
+                about,
                 tags: [...new Set(trimWithOneSpace(tags).split(" "))]
             }
         } else {
-            dataToBeUpdated = { id: user._id, password }
+            dataToBeUpdated = { password }
         }
 
         await dispatch(updateProfile({ ...dataToBeUpdated }));
