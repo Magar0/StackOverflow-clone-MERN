@@ -63,7 +63,7 @@ const AskQuestion = () => {
                             </label>
 
                         </div>
-                        <input type="submit" value="Review Your question" className="review-btn" />
+                        <input type="submit" value="Post Your question" className="review-btn" />
                     </form>
                 </div>
             </div>

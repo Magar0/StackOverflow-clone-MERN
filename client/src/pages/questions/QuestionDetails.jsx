@@ -16,7 +16,7 @@ const QuestionDetails = () => {
     const { loading, error } = useSelector(state => state.questions);
     const location = useLocation();
 
-    const url = process.env.REACT_APP_URL || "http://localhost:3000"
+    const url = process.env.REACT_APP_SHARE_URL || "http://localhost:3000"
 
     const handleShare = () => {
         const fullUrl = url + location.pathname;
