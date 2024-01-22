@@ -1,0 +1,25 @@
+.user_profile_link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+    h3 {
+        padding: 10px 13px;
+        background-color: #d3d3d3;
+        border-radius: 50%;
+        color: #ed3939c3;
+    }
+
+    h5 {
+        margin: 0 15px;
+    }
+
+    &:hover {
+        background-color: #ebe7e797;
+    }
+}

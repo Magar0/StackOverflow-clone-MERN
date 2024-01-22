@@ -1,0 +1,36 @@
+.post-ans-container form textarea {
+    padding: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    font-family: 'Robobto', sans-serif;
+    width: calc(100% - 20px);
+}
+
+.postAnsBtn {
+    margin: 20px 0px;
+    padding: 10px 10px;
+    background-color: #009dff;
+    color: white;
+    border: solid 1px #009dff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.postAnsBtn:hover {
+    background-color: #0086d8;
+}
+
+.ansTags {
+    padding: 5px;
+    margin: 3px;
+    font-size: 13px;
+    border-radius: 3px;
+    background-color: #e1ecf4;
+    color: #39739d;
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+    color: #009dff;
+}

@@ -1,0 +1,50 @@
+.display-ans {
+    padding-bottom: 20px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.112);
+}
+
+.display-ans p {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: pre-line;
+}
+
+
+.ques-action-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ques-action-user button {
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+    margin: 0 10px 0 0;
+    text-decoration: none;
+    color: #939292;
+    cursor: pointer;
+    font-size: 14px;
+    transform: 0.3s;
+}
+
+.ques-action-user button:active {
+    border-bottom: solid 2px black;
+}
+
+.ques-action-user div:nth-child(2) p {
+    margin: 0;
+    color: #0000009a;
+}
+
+.userLink {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+    color: #0086d8;
+}
+
+.userLink div {
+    padding-left: 10px;
+}
