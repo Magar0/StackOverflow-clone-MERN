@@ -58,7 +58,7 @@ const QuestionBody = ({ ques, user, handleShare }) => {
                             <p>asked {moment(ques.askedOn).fromNow()}</p>
                             <Link to={`/users/${ques.userId}`} className={styles.userLink} style={{ color: "#0086d8" }}>
                                 <Avatar avatarStyle={{ backgroundColor: "orange" }}>{ques.userPosted.charAt(0)}  </Avatar>
-                                <div> {ques.userPosted} </div>
+                                <div className="user-ask"> {ques.userPosted} </div>
                             </Link>
                         </div>
                     </div>

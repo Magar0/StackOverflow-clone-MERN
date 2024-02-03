@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
+import { MdNightlight, MdOutlineWbSunny } from "react-icons/md";
 
 import './Navbar.css'
 import Avatar from "../avatar/Avatar";
@@ -12,12 +13,14 @@ import { logout } from "../../store/slices/authSlice";
 import { setCurrentUser } from "../../store/slices/currentUserSlice";
 
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector(state => state.currentUser)
+    const theme = useSelector(state => state.theme)
     const changeInState = useSelector(state => state)
+
 
     const handleLogout = () => {
         localStorage.clear();
@@ -51,7 +54,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="main-nav">
+            <nav className={`main-nav theme-nav-${theme}`}>
                 <div className="navbar">
                     <Link to='/' className="nav-item nav-logo">
                         <img src={logo} height={45} alt='logo' />
@@ -72,6 +75,12 @@ const Navbar = () => {
                             <button className="nav-item nav-link" onClick={handleLogout}>Log Out</button>
                         </>
                     }
+
+                    <div className="toggle-theme-icon">
+                        <i><MdNightlight onClick={() => toggleTheme("night")} /></i>
+                        <i><MdOutlineWbSunny onClick={() => toggleTheme("day")} /></i>
+                        <i onClick={() => toggleTheme(false)}>Auto</i>
+                    </div>
 
                 </div>
             </nav>

@@ -35,10 +35,10 @@ const DisplayAns = ({ ques, user, handleShare }) => {
                                 }
                             </div>
                             <div>
-                                <p>answered {moment(ans.answeredOn).fromNow()}</p>
+                                <p className='ans-time'>answered {moment(ans.answeredOn).fromNow()}</p>
                                 <Link to={`/users/${ques.userId}`} className={styles.userLink}>
                                     <Avatar avatarStyle={""}>{ans.userAnswered.charAt(0)} </Avatar>
-                                    <div>{ans.userAnswered}</div>
+                                    <div className='user-ans'>{ans.userAnswered}</div>
                                 </Link>
                             </div>
                         </div>

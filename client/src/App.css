@@ -28,3 +28,164 @@
     color: red;
     font-size: 0.8rem;
 }
+
+/* theme color according to weather or time */
+/* haze or snow.... */
+.theme-nav-haze,
+.theme-nav-snow {
+    background-color: #d6d6d6 !important;
+}
+
+.theme-app-haze,
+.theme-nav-snow {
+    background-color: #e8e8e8a2;
+
+    .side-nav-links:hover,
+    .side-nav-links:active {
+        background-color: rgb(208 208 208);
+    }
+}
+
+/* thunderstorm.. */
+
+.theme-nav-thunderstorm {
+    background-color: #7aaaaa !important;
+}
+
+.theme-app-thunderstorm {
+    background-color: #4b7676;
+
+    .home-container-2 {
+        background-color: #7aaaaa;
+    }
+
+    .side-nav-links {
+        color: #1f1f1f;
+    }
+
+    .display-question-container {
+        background-color: #d8d3c1;
+        border: none;
+    }
+
+}
+
+/* rainy  */
+.theme-nav-rain {
+    background-color: #B0C4DE !important;
+}
+
+.theme-app-rain {
+    background-color: #B0C4DE;
+
+    .home-container-2 {
+        background-color: #c6daf0;
+    }
+}
+
+/* night............. */
+
+.theme-nav-night {
+    background-color: #323232 !important;
+
+    .nav-btn {
+        color: rgb(235, 223, 223);
+
+        &:hover {
+            color: rgb(69, 69, 69)
+        }
+    }
+}
+
+.theme-app-night {
+    background-color: #1a1a1a;
+
+    .auth-section {
+        background-color: #3d3d3d;
+
+        form {
+            background-color: d5d5d5;
+        }
+    }
+
+    .home-container-2 {
+        background-color: #3f3f3f;
+        border: none;
+
+        .display-question-container {
+            background-color: #c6b472;
+            border: none;
+        }
+
+        .main-bar-header {
+            color: white;
+        }
+
+        .ques-number {
+            color: white;
+        }
+
+        .widget h4,
+        .widget .box {
+            background-color: #d6c68b;
+            border: #d6c68b;
+        }
+    }
+
+    .left-sidebar {
+        color: rgb(213, 213, 213);
+
+        .side-nav a {
+            color: rgb(213, 213, 213);
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        .side-nav .active {
+            color: black;
+        }
+
+    }
+}
+
+/* night ask question page */
+
+.theme-app-night {
+    .ask-ques-container {
+        h1 {
+            color: white
+        }
+
+        .ask-form-container {
+            background-color: #656565;
+
+            input,
+            textarea {
+                background-color: #d8d8d8;
+            }
+        }
+    }
+}
+
+/* night for display answer page */
+
+.theme-app-night {
+    .ques-details-page {
+        color: white;
+
+        .ans-time {
+            color: white;
+        }
+
+        .user-ask,
+        .user-ans {
+            color: lightblue;
+        }
+
+        textarea {
+            background-color: rgb(223, 223, 223);
+        }
+    }
+}

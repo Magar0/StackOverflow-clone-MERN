@@ -7,7 +7,8 @@ const HomeMainbar = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const user = 1;
+    const user = useSelector(state => state.currentUser);
+    const theme = useSelector(state => state.theme);
 
     const { data: questionList, loading, error } = useSelector(state => state.questions)
 
@@ -22,7 +23,7 @@ const HomeMainbar = () => {
 
     return (
         <>
-            <div className="main-bar">
+            <div className={`main-bar theme-main-${theme}`}>
                 <div className="main-bar-header">
                     {
                         location.pathname === '/' ? < h1 > Top Questions</h1> : <h1>All Questions</h1>
@@ -36,7 +37,7 @@ const HomeMainbar = () => {
                     {
                         questionList?.length > 0 &&
                         <>
-                            <p>{questionList.length} questions</p>
+                            <p className='ques-number'>{questionList.length} questions</p>
                             {questionList.map(question => {
                                 return <Questions question={question} key={question._id} />
                             })}
