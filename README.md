@@ -2,29 +2,31 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Features](#features)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [API Endpoints](#api-endpoints)
 
 ## General info
-![Stack Overflow](https://github.com/Magar0/StackOverflow-clone-MERN/assets/35245789/173f1fa7-65c4-42ed-b9f1-fa8fec9ce6a5)
-A clone of stackoverflow website where one can ask questions or answer a question.
-## Features
-<ul>
-  <li> User can sign up or log in. </li>
-  <li> User can post new question or vote, answer other's question </li>
-  <li> User can edit their profile or change password. </li>
-</ul>
+<!--- ![Stack Overflow](https://github.com/Magar0/StackOverflow-clone-MERN/assets/35245789/173f1fa7-65c4-42ed-b9f1-fa8fec9ce6a5) --->
+<img src="https://github.com/Magar0/StackOverflow-clone-MERN/assets/35245789/173f1fa7-65c4-42ed-b9f1-fa8fec9ce6a5" height="350" >
 
+* Developed a feature-rich Q&A platform similar to Stack Overflow using the MERN stack (MongoDB, Express.js, React.js, Node.js)
+* Implemented secure user authentication and authorization with sign-up, login, password management, and JWT-based tokens.
+* Enabled extensive user interaction with question asking, editing, deletion, voting, answering, and profile management.
+* Enhanced user experience with dynamic theme personalization (day/night mode, auto-theme based on time/weather).
+* Integrated an AI chatbot for interactive learning and engagement, with email verification for secure access.
+* Leveraged Node.js, Express.js, Bcrypt.js, and other technologies for a robust and scalable backend foundation.
+* Utilized React Router for seamless navigation between pages (home, questions, tags, users).
+* Employed Redux Toolkit for efficient state management and data flow.
+* Incorporated Axios for simplified API communication.
 
 ## Technologies
 * MERN stack
 * React JS
 * Redux Toolkit, React Router,Axios.
-* Node JS.
-* Express JS.
+* Node JS., Express JS.
 * Bcrypt js, Json Web Token (JWT).
+* Geolocation , weather api , Open AI
 	
 ## Setup
 To run this project, install it locally using npm:
