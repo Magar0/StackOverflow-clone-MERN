@@ -1,0 +1,23 @@
+.inputOtp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    input {
+        padding: 5px;
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 8px 15px;
+        border-radius: 7px;
+        border: solid #0000003e 1px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(195, 193, 193);
+        }
+    }
+}

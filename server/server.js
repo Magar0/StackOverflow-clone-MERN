@@ -6,6 +6,7 @@ const dbConnect = require('./mongoose/dbConnect');
 const userRoutes = require('./routes/user.js')
 const questionsRoutes = require('./routes/questions.js')
 const answerRoutes = require('./routes/answers.js')
+const chatAI = require('./routes/chatAI.js')
 
 
 dotEnv.config();
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 app.use('/user', userRoutes);
 app.use('/questions', questionsRoutes)
 app.use('/answers', answerRoutes)
+app.use('/chatai', chatAI)
 
 
 app.use('/', (err, req, res, next) => {

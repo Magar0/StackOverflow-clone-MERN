@@ -1,0 +1,137 @@
+.error {
+    font-weight: 300;
+    color: red;
+    font-style: italic;
+    margin: 0;
+    margin-left: 5%;
+}
+
+.chatAiIcon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.chatBodyContainer {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 60vh;
+    width: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: hidden;
+    /* overflow-y: auto; */
+
+    .body {
+        margin: 20px 5px;
+        text-align: center;
+    }
+}
+
+.chatCloseBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: rgb(239, 190, 190);
+    padding: 5px;
+}
+
+.emailBox,
+.verifyOtpBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #000000c0;
+
+    div {
+        font-weight: 600;
+    }
+
+}
+
+.emailBox .input,
+.verifyOtpBox .input,
+.chatBox .input {
+    display: flex;
+    justify-content: center;
+
+    input,
+    input:focus {
+        padding: 5px 2px 5px 7px;
+        font-size: 1rem;
+        flex-grow: 0.7;
+        border: solid #0000003e 1px;
+        outline-color: #0000003e;
+        border-radius: 10px;
+    }
+
+    i {
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+            color: darkblue;
+        }
+    }
+
+    .disabled {
+        color: #0000003e;
+        cursor: default;
+
+        &:hover {
+            color: #0000003e;
+        }
+    }
+}
+
+.bottom_part {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 15px 10px 5px;
+}
+
+.chatBox .input {
+    justify-content: center;
+    gap: 5px;
+}
+
+/* spinner positioning */
+.spinnerEmail {
+    position: relative;
+    right: 40px;
+    bottom: 3px;
+    width: 0;
+}
+
+
+/* styling for chat messages */
+.chatBox .chat {
+    height: 55vh;
+    overflow-y: auto;
+
+    p {
+        margin: 0 0 3px 0;
+        padding: 5px 10px;
+        border-radius: 10px;
+
+        &:nth-child(2n) {
+            background-color: rgb(176, 175, 175);
+        }
+
+        &:nth-child(odd) {
+            background-color: rgb(177, 233, 177);
+            text-align: right;
+        }
+    }
+
+}

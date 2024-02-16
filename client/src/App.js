@@ -17,6 +17,7 @@ import DisplayQuestion from './pages/questions/DisplayQuestion';
 import Tags from './pages/tags/Tags';
 import Users from './pages/users/Users';
 import UserProfile from './pages/userProfile/UserProfile';
+import ChatAi from './component/chatbot/ChatAi';
 
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         const weather = await fetchWeather(latitude, longitude);
-        setWeather(weather);
+        if (weather.main) {
+          setWeather(weather.main);
+        }
         // setWeather("Thunderstorm");
       })
     }
@@ -96,7 +99,7 @@ function App() {
     }
   }, [hour, weather, toggleTheme])
 
-  console.log("weather: ", weather, " theme: ", theme)
+  // console.log("weather: ", weather, " theme: ", theme)
 
   return (
     <>
@@ -115,6 +118,8 @@ function App() {
           </Route>
 
         </Routes>
+
+        <ChatAi />
       </div >
     </>
   );

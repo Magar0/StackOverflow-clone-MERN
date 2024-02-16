@@ -96,7 +96,7 @@
     i {
         padding: 5px 8px;
         border: solid 1px #0000003e;
-        background-color: rgb(187, 206, 224);
+        /* background-color: rgb(187, 206, 224); */
         cursor: pointer;
 
         &:hover {

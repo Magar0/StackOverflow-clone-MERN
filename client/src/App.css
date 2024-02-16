@@ -188,4 +188,8 @@
             background-color: rgb(223, 223, 223);
         }
     }
+
+    .toggle-theme-icon i {
+        background-color: rgb(187, 206, 224);
+    }
 }
