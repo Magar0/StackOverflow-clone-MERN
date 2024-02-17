@@ -9,8 +9,7 @@ const URL = process.env.REACT_APP_URL || 'http://localhost:4000'
 const chatAiSlice = createSlice({
     name: "chatAiToken",
     initialState: {
-        // token: null,
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJha2VzaG1hZ2FyMEBnbWFpbC5jb20iLCJzZXNzaW9uVG9rZW4iOiJmMzQwNTQ5NTFiMDc2ZDhkMTIyNmU5MGFiYmRhYzRmNyIsImlhdCI6MTcwODA5MTk4MiwiZXhwIjoxNzA4MDk1NTgyfQ.AWyEwGGv-uMT3VrDRzpKSdZC89OLYtzkV-gyMxY6t-g",
+        token: null,
         chat: []
     },
     reducers: {
