@@ -16,7 +16,7 @@ const AskQuestion = () => {
     const navigate = useNavigate()
     const dispacth = useDispatch();
     const User = useSelector(state => state.currentUser)
-    const { data, loading, askQuestionError } = useSelector(state => state.questions)
+    const { success, loading, error } = useSelector(state => state.questions)
 
     function trimWithOneSpace(str) {
         return str.replace(/^\s+|\s+$/g, "") // Trim leading and trailing spaces
@@ -32,24 +32,30 @@ const AskQuestion = () => {
                 questionTags: [...new Set(trimWithOneSpace(questionTags).split(" "))],
                 userPosted: User.data.name
             }));
-
-            await dispacth(fetchAllQuestion())
-            navigate('/')
-
         } else {
             alert("Login to ask question")
             navigate('/auth')
         }
     }
 
+    const handleNavigation = async () => {
+        if (success) {
+            await dispacth(fetchAllQuestion())
+            navigate('/')
+        }
+    }
     useEffect(() => {
-        if (askQuestionError) {
-            setShowError(askQuestionError?.message)
+        if (error) {
+            setShowError(error?.message)
             setTimeout(() => {
                 setShowError(false)
             }, 3000)
         }
-    }, [askQuestionError])
+    }, [error])
+
+    useEffect(() => {
+        handleNavigation()
+    }, [success])
 
     return (
         <>

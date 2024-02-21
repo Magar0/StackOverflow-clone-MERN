@@ -44,8 +44,8 @@ export const deleteAnswer = createAsyncThunk('questions/deleteAnswer', async (da
 const initialState = {
     data: null,
     loading: false,
+    success: false,
     error: null,
-    askQuestionError: null
 }
 
 const questionSlice = createSlice({
@@ -57,15 +57,17 @@ const questionSlice = createSlice({
             //ask question...
             .addCase(askQuestions.pending, (state) => {
                 state.loading = true;
-                state.askQuestionError = null;
+                state.success = false;
+                state.error = null;
             })
             .addCase(askQuestions.fulfilled, (state, action) => {
                 state.loading = false;
+                state.success = true;
                 state.data = action.payload
             })
             .addCase(askQuestions.rejected, (state, action) => {
                 state.loading = false;
-                state.askQuestionError = action.payload;
+                state.error = action.payload;
                 state.data = null;
             })
 
