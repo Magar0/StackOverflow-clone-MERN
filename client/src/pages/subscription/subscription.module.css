@@ -19,3 +19,9 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width:576px) {
+    .subscription {
+        gap: 8px;
+    }
+}

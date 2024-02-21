@@ -18,8 +18,6 @@ const Navbar = ({ toggleTheme }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const user = useSelector(state => state.currentUser)
-    // const theme = useSelector(state => state.theme)
     const state = useSelector(state => state)
 
     const user = state.currentUser

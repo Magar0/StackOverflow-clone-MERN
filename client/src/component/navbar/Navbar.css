@@ -160,9 +160,10 @@
         }
 
         .nav-link {
-            font-size: small;
+            font-size: 0.8rem;
             padding: 4px 5px;
-            width: 40px;
+            width: 58px;
+            font-weight: 300;
         }
 
         .nav-logo {

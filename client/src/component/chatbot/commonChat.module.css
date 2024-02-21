@@ -118,6 +118,7 @@
 .chatBox .chat {
     height: 55vh;
     overflow-y: auto;
+    padding-top: 15px;
 
     p {
         margin: 0 0 3px 0;

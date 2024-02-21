@@ -82,3 +82,42 @@
         }
     }
 }
+
+/* media screen  */
+@media screen and (max-width: 768px) {
+    .card {
+        width: 200px;
+
+        ul {
+            padding: 0 5px 0 5px;
+
+            li {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        width: 150px;
+
+        .top h1 {
+            font-size: 1.3rem;
+        }
+
+        .bot {
+            padding: 15px 5px;
+
+            h5 {
+                font-size: 1rem;
+            }
+
+            button {
+                letter-spacing: 0;
+                padding: 5px 7px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
