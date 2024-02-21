@@ -54,7 +54,7 @@
      OPEN_AI_KEY= "your open AI key"
      STRIPE_SECRET_KEY="your Stripe secret Key"
      ```
-2. Install dependencies:
+2. Install dependencies and run server:
 #### Frontend
 ```
  cd ../client
@@ -96,3 +96,5 @@ npm start
 
 Note : For endpoints marked with "Email Verification", the email field is required in the request body.
 
+
+** For payment you can use this dummy stripe card number:- 4000003560000008
