@@ -51,13 +51,17 @@ const initialState = {
 const questionSlice = createSlice({
     name: "questions",
     initialState,
-    reducers: {},
+    reducers: {
+        setSuccess(state) {
+            state.success = false;
+        }
+    },
     extraReducers: (builder) => {
         builder
             //ask question...
             .addCase(askQuestions.pending, (state) => {
-                state.loading = true;
                 state.success = false;
+                state.loading = true;
                 state.error = null;
             })
             .addCase(askQuestions.fulfilled, (state, action) => {
@@ -148,3 +152,4 @@ const questionSlice = createSlice({
 
 
 export default questionSlice.reducer;
+export const { setSuccess } = questionSlice.actions;
