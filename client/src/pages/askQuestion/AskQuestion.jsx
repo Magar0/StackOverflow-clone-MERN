@@ -32,18 +32,20 @@ const AskQuestion = () => {
                 questionTags: [...new Set(trimWithOneSpace(questionTags).split(" "))],
                 userPosted: User.data.name
             }));
+            await dispacth(fetchAllQuestion())
+            navigate('/')
         } else {
             alert("Login to ask question")
             navigate('/auth')
         }
     }
 
-    const handleNavigation = async () => {
-        if (success) {
-            await dispacth(fetchAllQuestion())
-            navigate('/')
-        }
-    }
+    // const handleNavigation = async () => {
+    //     if (success) {
+    //         // await dispacth(fetchAllQuestion())
+    //         // // navigate('/')
+    //     }
+    // }
     useEffect(() => {
         if (error) {
             setShowError(error?.message)
@@ -53,9 +55,9 @@ const AskQuestion = () => {
         }
     }, [error])
 
-    useEffect(() => {
-        handleNavigation()
-    }, [success])
+    // useEffect(() => {
+    //     handleNavigation()
+    // }, [success])
 
     return (
         <>
