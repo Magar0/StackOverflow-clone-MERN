@@ -17,16 +17,18 @@ const Questions = ({ question }) => {
                 </div>
 
                 <div className="display-question-details">
-                    <Link to={`/questions/${question._id}`}>{question.questionTitle}</Link>
-                    <div className='display-tags-time'>
-                        <div className="display-tags">
-                            {question.questionTags.map((tag) => (<p key={tag}>{tag}</p>))}
+                    <Link to={`/questions/${question._id}`}>
+                        {question.questionTitle}
+                        <div className='display-tags-time'>
+                            <div className="display-tags">
+                                {question.questionTags.map((tag) => (<p key={tag}>{tag}</p>))}
+                            </div>
+                            <p className='display-time'>asked {moment(question.askedOn).fromNow()} {question.userPosted}</p>
                         </div>
-                        <p className='display-time'>asked {moment(question.askedOn).fromNow()} {question.userPosted}</p>
-                    </div>
+                    </Link>
                 </div>
 
-            </div>
+            </div >
         </>
     )
 }

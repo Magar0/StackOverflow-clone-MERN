@@ -1,0 +1,21 @@
+.container {
+    padding: 40px 10px;
+    min-height: 100vh;
+
+}
+
+.planDetails {
+    font-size: 1.2rem;
+
+    span {
+        font-weight: bolder;
+        text-transform: capitalize;
+    }
+}
+
+.subscription {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

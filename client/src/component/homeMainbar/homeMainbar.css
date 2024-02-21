@@ -71,10 +71,11 @@
 .display-tags-time .display-tags {
     display: flex;
     flex-wrap: wrap;
+    margin: 5px 0 0 0;
 }
 
 .display-tags-time .display-tags p {
-    margin-right: 3px;
+    margin: 0 3px 1px 0;
     padding: 4px;
     font-size: 13px;
     background-color: #edeff0;
@@ -83,4 +84,13 @@
 
 .display-tags-time .display-time {
     font-size: 13px;
+    margin-left: auto;
+}
+
+
+/* media screen */
+@media screen and (max-width: 992px) {
+    .main-bar {
+        width: 100%;
+    }
 }

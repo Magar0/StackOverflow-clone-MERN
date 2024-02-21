@@ -12,7 +12,7 @@ const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
         const newUser = await users.create({ name, email, password: hashedPassword });
-        const token = jwt.sign({ email: newUser.email, userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '15m' })
+        const token = jwt.sign({ email: newUser.email, userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1hr' })
         res.status(200).json({ data: newUser, token })
     } catch (err) {
         res.status(500).json({ error: "Something went wrong" })
@@ -32,7 +32,7 @@ const login = async (req, res) => {
             return res.status(400).json({ message: "Password Wrong" })
         }
 
-        const token = jwt.sign({ email: existingUser.email, userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '15m' })
+        const token = jwt.sign({ email: existingUser.email, userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '1hr' })
         res.status(200).json({ data: existingUser, token })
     } catch (err) {
         res.status(500).json({ error: "Something went wrong" })

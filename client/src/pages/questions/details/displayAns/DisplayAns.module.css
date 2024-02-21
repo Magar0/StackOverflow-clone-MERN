@@ -43,6 +43,10 @@
     font-size: 14px;
     text-decoration: none;
     color: #0086d8;
+
+    .userAns {
+        text-transform: capitalize;
+    }
 }
 
 .userLink div {

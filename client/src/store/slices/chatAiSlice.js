@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { useSelector } from 'react-redux'
-// import store from '../../store/store';
 
 const URL = process.env.REACT_APP_URL || 'http://localhost:4000'
 
@@ -10,7 +8,7 @@ const chatAiSlice = createSlice({
     name: "chatAiToken",
     initialState: {
         token: null,
-        chat: []
+        chat: ["Hello! How can I assist you today?"]
     },
     reducers: {
         setToken(state, action) {

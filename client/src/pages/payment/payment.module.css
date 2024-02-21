@@ -1,0 +1,21 @@
+.success,
+.cancel {
+    position: relative;
+    background-color: white;
+    min-height: 100vh;
+    z-index: 6;
+    margin: 0;
+    padding-top: 5px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.success {
+    color: green;
+}
+
+.cancel {
+    color: red;
+}

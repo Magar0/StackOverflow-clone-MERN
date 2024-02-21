@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./askQuestion.css"
 import { askQuestions, fetchAllQuestion } from "../../store/slices/questionSlice";
+import LeftSidebar from "../../component/leftSidebar/LeftSidebar";
 
 const AskQuestion = () => {
 
@@ -38,6 +39,9 @@ const AskQuestion = () => {
 
     return (
         <>
+            <div className="askQuestion-leftSideBar ">
+                <LeftSidebar />
+            </div>
             <div className="ask-ques">
                 <div className="ask-ques-container">
                     <h1>Ask a public Questions</h1>

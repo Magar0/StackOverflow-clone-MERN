@@ -23,3 +23,10 @@
         background-color: #ebe7e797;
     }
 }
+
+/* media screen */
+@media screen and (max-width: 768px) {
+    .user_profile_link {
+        padding: 0;
+    }
+}

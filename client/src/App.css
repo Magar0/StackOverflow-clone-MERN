@@ -100,11 +100,15 @@
 .theme-app-night {
     background-color: #1a1a1a;
 
+    .left-sidebar {
+        background-color: #1a1a1a;
+    }
+
     .auth-section {
         background-color: #3d3d3d;
 
         form {
-            background-color: d5d5d5;
+            background-color: #d5d5d5;
         }
     }
 
@@ -191,5 +195,18 @@
 
     .toggle-theme-icon i {
         background-color: rgb(187, 206, 224);
+    }
+}
+
+/* media screen */
+@media screen and (max-width: 992px) {
+    .ques-details-page {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .home-container-2 {
+        width: 100%;
     }
 }

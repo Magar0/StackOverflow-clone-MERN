@@ -3,6 +3,7 @@
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     transform: translate(0);
     font-size: 13px;
+    background-color: white;
 }
 
 .side-nav {
@@ -50,4 +51,23 @@
     color: black;
     background-color: rgb(225, 225, 225);
     border-right: solid 3px #ef8236;
+}
+
+/* media screen */
+@media screen and (max-width:576px) {
+    .left-sidebar {
+        display: none;
+    }
+
+    .left-sidebar.active {
+        display: block;
+        position: fixed;
+        height: 100vh;
+        z-index: 2;
+
+        .side-nav {
+            padding-top: 10px;
+        }
+    }
+
 }

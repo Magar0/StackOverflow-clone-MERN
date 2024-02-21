@@ -5,6 +5,7 @@ import currentUserSlice from './slices/currentUserSlice'
 import userSlice from './slices/userSlice'
 import themeSlice from "./slices/themeSlice";
 import chatAiSlice, { chatAiApi } from "./slices/chatAiSlice";
+import menuBarSlice from "./slices/menuBar";
 
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     users: userSlice,
     theme: themeSlice,
     chatAi: chatAiSlice,
+    menuBar: menuBarSlice,
     [chatAiApi.reducerPath]: chatAiApi.reducer
 })
 

@@ -81,3 +81,10 @@
     border-radius: 2px;
     font-size: 13px;
 }
+
+/* media screen */
+@media screen and (max-width: 992px) {
+    .right-sidebar {
+        display: none;
+    }
+}

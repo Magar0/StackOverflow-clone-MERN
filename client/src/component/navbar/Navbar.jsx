@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
+import { FaSearch, FaBars } from "react-icons/fa";
 import { MdNightlight, MdOutlineWbSunny } from "react-icons/md";
 
 import './Navbar.css'
@@ -11,16 +11,20 @@ import Button from "../button/Button";
 import logo from '../../assets/stackOverflow(logo).png'
 import { logout } from "../../store/slices/authSlice";
 import { setCurrentUser } from "../../store/slices/currentUserSlice";
+import { setMenuBar } from "../../store/slices/menuBar";
 
 
 const Navbar = ({ toggleTheme }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector(state => state.currentUser)
-    const theme = useSelector(state => state.theme)
-    const changeInState = useSelector(state => state)
+    // const user = useSelector(state => state.currentUser)
+    // const theme = useSelector(state => state.theme)
+    const state = useSelector(state => state)
 
+    const user = state.currentUser
+    const theme = state.theme
+    const menuBar = state.menuBar
 
     const handleLogout = () => {
         localStorage.clear();
@@ -50,12 +54,13 @@ const Navbar = ({ toggleTheme }) => {
                 console.log("Logged out");
             }
         }
-    }, [changeInState])
+    }, [state])
 
     return (
         <>
             <nav className={`main-nav theme-nav-${theme}`}>
                 <div className="navbar">
+                    <button className={`menuBar ${menuBar ? "active" : null}`} onClick={() => dispatch(setMenuBar())}><FaBars /></button>
                     <Link to='/' className="nav-item nav-logo">
                         <img src={logo} height={45} alt='logo' />
                     </Link>

@@ -6,6 +6,7 @@ import './auth.css';
 import icon from '../../assets/icon.png';
 import AboutAuth from './AboutAuth';
 import { login, signup } from '../../store/slices/authSlice';
+import LeftSidebar from '../../component/leftSidebar/LeftSidebar';
 
 
 const Auth = () => {
@@ -50,6 +51,9 @@ const Auth = () => {
 
     return (
         <>
+            <div className="auth-leftSideBar ">
+                <LeftSidebar />
+            </div>
             <section className='auth-section'>
 
                 {isSignup && <AboutAuth />}

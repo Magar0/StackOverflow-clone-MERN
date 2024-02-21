@@ -3,9 +3,14 @@
     /* background-color: #f1f2f3; */
 }
 
+.askQuestion-leftSideBar {
+    display: none;
+}
+
 .ask-ques-container {
     margin: auto;
     max-width: 1200px;
+    padding: 0 25px;
 }
 
 .ask-ques-container h1 {
@@ -55,4 +60,22 @@
 
 .review-btn:hover {
     background-color: #0086d8;
+}
+
+/* media screen  */
+@media screen and (max-width:576px) {
+    .askQuestion-leftSideBar {
+        display: block;
+    }
+
+    .ask-ques-container h1 {
+        padding: 45px 0 10px 0;
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    h4,
+    p {
+        font-size: smaller;
+    }
 }

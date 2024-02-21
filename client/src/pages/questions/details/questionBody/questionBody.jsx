@@ -14,9 +14,9 @@ const QuestionBody = ({ ques, user, handleShare }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const handleDelete = () => {
-        dispatch(deleteQuestion(ques._id));
-        dispatch(fetchAllQuestion());
+    const handleDelete = async () => {
+        await dispatch(deleteQuestion(ques._id));
+        await dispatch(fetchAllQuestion());
         navigate('/questions')
     }
 

@@ -18,8 +18,14 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    plan: {
+        type: String,
+        required: true,
+        enum: ['free', 'silver', 'gold'],
+        default: 'free'
+    },
     about: { type: String, default: null },
-    tags: { type: [String] },
+    tags: { type: [String] }
 })
 
 

@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.auth-leftSideBar {
+    display: none;
+}
+
 .login-logo {
     padding: 20px 30px;
 }
@@ -123,4 +127,29 @@
 
 .about-auth-container ul {
     list-style: none;
+}
+
+/* media screen */
+@media screen and (max-width:992px) {
+    .auth-container-1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width:576px) {
+
+    .auth-leftSideBar {
+        display: block;
+    }
+
+    .auth-container-2 {
+        form {
+            width: 80%;
+
+            h4,
+            p {
+                font-size: smaller;
+            }
+        }
+    }
 }

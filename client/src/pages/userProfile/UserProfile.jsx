@@ -24,12 +24,22 @@ const UserProfile = () => {
     const currentProfile = users?.filter((user) => user._id === id)[0];
     const cancelEditing = () => setEditing(false)
 
-    const avatarStyle = {
+    let avatarStyle = {
         backgroundColor: "purple",
         color: "white",
         fontSize: "50px",
         px: "50px",
         py: "30px",
+    }
+
+    if (window.innerWidth < 576) {
+        avatarStyle = {
+            backgroundColor: "purple",
+            color: "white",
+            fontSize: "40px",
+            px: "30px",
+            py: "15px",
+        }
     }
 
     useEffect(() => {

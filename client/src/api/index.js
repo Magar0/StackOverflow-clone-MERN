@@ -4,9 +4,14 @@ const URL = process.env.REACT_APP_URL || 'http://localhost:4000'
 const API = axios.create({ baseURL: URL })
 
 API.interceptors.request.use((req) => {
-    const user = localStorage.getItem('Profile')
-    if (user) {
-        req.headers.Authorization = `Bearer ${JSON.parse(user).token}`
+    try {
+        const user = JSON.parse(localStorage.getItem('Profile'))
+        console.log(user);
+        if (user?.data || user?.token) {
+            req.headers.Authorization = `Bearer ${user.token}`
+        }
+    } catch (err) {
+        console.log(err);
     }
     return req;
 })
@@ -30,4 +35,8 @@ export const getAllUsers = () => API.get(`/user/getAllUsers`)
 export const updateProfile = (data) => API.patch('/user/update', data)
 export const deleteUser = () => API.delete(`/user/delete`)
 
+//subscription
+export const makePayment = (data) => API.post(`/subscription`, data)
+export const changePlan = (id) => API.patch(`/subscription/${id}`)
+export const cancelSubscription = () => API.patch(`/subscription/cancel`)
 

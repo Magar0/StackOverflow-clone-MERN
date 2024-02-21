@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, json } from 'react-router-dom';
 
 import './App.css';
 import { fetchAllQuestion } from './store/slices/questionSlice';
@@ -18,6 +18,9 @@ import Tags from './pages/tags/Tags';
 import Users from './pages/users/Users';
 import UserProfile from './pages/userProfile/UserProfile';
 import ChatAi from './component/chatbot/ChatAi';
+import Subscription from './pages/subscription/Subscription';
+import Cancel from './pages/payment/Cancel';
+import Success from './pages/payment/Success';
 
 
 function App() {
@@ -41,7 +44,6 @@ function App() {
         if (weather.main) {
           setWeather(weather.main);
         }
-        // setWeather("Thunderstorm");
       })
     }
     catch (err) {
@@ -72,7 +74,16 @@ function App() {
 
   //use effect to fetch all the data required
   useEffect(() => {
-    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    //for getting user data from local storage
+    try {
+      const localData = JSON.parse(localStorage.getItem('Profile'))
+      if (localData?.data && localData?.token) {
+        console.log("dsddfsf");
+        dispatch(setCurrentUser(localData))
+      }
+    } catch (err) {
+      console.log(err);
+    }
     dispatch(fetchAllQuestion())
     dispatch(getAllUsers())
   }, [authChange, dispatch])
@@ -115,6 +126,9 @@ function App() {
             <Route path='/questions' element={<Questions />} />
             <Route path='/askquestion' element={<AskQuestion />} />
             <Route path='/questions/:id' element={<DisplayQuestion />} />
+            <Route path='/subscription' element={<Subscription />} />
+            <Route path='/subscription/success' element={<Success />} />
+            <Route path='/subscription/cancel' element={<Cancel />} />
           </Route>
 
         </Routes>

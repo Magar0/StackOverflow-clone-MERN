@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user.js')
 const questionsRoutes = require('./routes/questions.js')
 const answerRoutes = require('./routes/answers.js')
 const chatAI = require('./routes/chatAI.js')
+const subscription = require('./routes/subscription.js')
 
 
 dotEnv.config();
@@ -25,6 +26,7 @@ app.use('/user', userRoutes);
 app.use('/questions', questionsRoutes)
 app.use('/answers', answerRoutes)
 app.use('/chatai', chatAI)
+app.use('/subscription', subscription)
 
 
 app.use('/', (err, req, res, next) => {

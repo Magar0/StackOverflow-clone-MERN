@@ -36,9 +36,9 @@ const DisplayAns = ({ ques, user, handleShare }) => {
                             </div>
                             <div>
                                 <p className='ans-time'>answered {moment(ans.answeredOn).fromNow()}</p>
-                                <Link to={`/users/${ques.userId}`} className={styles.userLink}>
+                                <Link to={`/users/${ans.userId}`} className={styles.userLink}>
                                     <Avatar avatarStyle={""}>{ans.userAnswered.charAt(0)} </Avatar>
-                                    <div className='user-ans'>{ans.userAnswered}</div>
+                                    <div className={styles.userAns}>{ans.userAnswered}</div>
                                 </Link>
                             </div>
                         </div>
