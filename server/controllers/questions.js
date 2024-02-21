@@ -9,7 +9,8 @@ const getQuestionAskedToday = async (id) => {
         { $match: { userId: id, askedOn: { $gte: today } } },
         { $count: "questionCount" }
     ])
-    return response[0];
+    return { questionCount: 0, ...response[0] }
+
 }
 
 const getUserPlan = async (id) => {
@@ -25,13 +26,14 @@ const askQuestion = async (req, res) => {
         const { questionCount } = await getQuestionAskedToday(req.userId)
         const plan = await getUserPlan(req.userId)
         if (plan === "free" && questionCount > 0) {
-            return res.status(400).json({ error: "Daily limit exhausted. Try again tomorrow or change your plan." })
+            return res.status(400).json({ message: "Daily limit exhausted. Try again tomorrow or change your plan." })
         } else if (plan === "silver" && questionCount > 9) {
-            return res.status(400).json({ error: "Daily limit exhausted. Try again tomorrow or change your plan." })
+            return res.status(400).json({ message: "Daily limit exhausted. Try again tomorrow or change your plan." })
         }
         await postQuestion.save();
         res.status(200).json({ message: "posted a question successfully" })
     } catch (err) {
+        console.log(err);
         res.status(500).json({ error: err.message })
     }
 }

@@ -9,13 +9,14 @@ import LeftSidebar from "../../component/leftSidebar/LeftSidebar";
 
 const AskQuestion = () => {
 
+    const [showError, setShowError] = useState(false)
     const [questionTitle, setQuestionTitle] = useState('')
     const [questionBody, setQuestionBody] = useState('')
     const [questionTags, setQuestionTags] = useState('')
     const navigate = useNavigate()
     const dispacth = useDispatch();
     const User = useSelector(state => state.currentUser)
-    const { loading } = useSelector(state => state.questions)
+    const { data, loading, askQuestionError } = useSelector(state => state.questions)
 
     function trimWithOneSpace(str) {
         return str.replace(/^\s+|\s+$/g, "") // Trim leading and trailing spaces
@@ -31,13 +32,24 @@ const AskQuestion = () => {
                 questionTags: [...new Set(trimWithOneSpace(questionTags).split(" "))],
                 userPosted: User.data.name
             }));
+
             await dispacth(fetchAllQuestion())
-            navigate('/questions')
+            navigate('/')
+
         } else {
             alert("Login to ask question")
             navigate('/auth')
         }
     }
+
+    useEffect(() => {
+        if (askQuestionError) {
+            setShowError(askQuestionError?.message)
+            setTimeout(() => {
+                setShowError(false)
+            }, 3000)
+        }
+    }, [askQuestionError])
 
     return (
         <>
@@ -69,13 +81,17 @@ const AskQuestion = () => {
                             </label>
 
                         </div>
+                        {
+                            showError &&
+                            < p className="error"> {showError} </p>
+                        }
                         <input type="submit" value="Post Your question" className="review-btn" />
                         {
                             loading && <i className="spinner-auth"><Spinner /></i>
                         }
                     </form>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

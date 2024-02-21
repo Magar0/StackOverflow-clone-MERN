@@ -1,9 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from '../../api/index';
 
-export const askQuestions = createAsyncThunk('questions/askQuestions', async (data) => {
-    const response = await api.postQuestion(data);
-    return response.data;
+export const askQuestions = createAsyncThunk('questions/askQuestions', async (data, { rejectWithValue }) => {
+    try {
+        const response = await api.postQuestion(data);
+        return response.data;
+    } catch (error) {
+        if (error.response?.data) {
+            return rejectWithValue(error.response.data);
+        } else if (error.message) {
+            return rejectWithValue({ message: error.message });
+        } else {
+            return rejectWithValue({ message: 'Something went wrong. Please try again later.' });
+        }
+    }
 })
 
 export const fetchAllQuestion = createAsyncThunk('questions/fetchAllQuestions', async () => {
@@ -34,7 +44,8 @@ export const deleteAnswer = createAsyncThunk('questions/deleteAnswer', async (da
 const initialState = {
     data: null,
     loading: false,
-    error: null
+    error: null,
+    askQuestionError: null
 }
 
 const questionSlice = createSlice({
@@ -46,15 +57,15 @@ const questionSlice = createSlice({
             //ask question...
             .addCase(askQuestions.pending, (state) => {
                 state.loading = true;
-                state.error = null;
+                state.askQuestionError = null;
             })
             .addCase(askQuestions.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload
             })
-            .addCase(askQuestions.rejected, (state) => {
+            .addCase(askQuestions.rejected, (state, action) => {
                 state.loading = false;
-                state.error = true;
+                state.askQuestionError = action.payload;
                 state.data = null;
             })
 
