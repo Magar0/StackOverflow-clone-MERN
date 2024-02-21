@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import Spinner from '../../component/spinner/Spinner';
 
 import './auth.css';
 import icon from '../../assets/icon.png';
@@ -19,7 +20,7 @@ const Auth = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const { error, data } = useSelector((state) => state.auth);
+    const { error, data, loading } = useSelector((state) => state.auth);
 
     const handleSwitch = () => setIsSignup(!isSignup)
     const handleSubmit = async (e) => {
@@ -96,9 +97,12 @@ const Auth = () => {
                         }
 
                         {/* display error */}
-                        {(showError && error.message) && <p className='error'>{error.message}</p>}
-                        {(showError && !error.message) && <p className='error'>Something went wrong</p>}
+                        {(showError && error?.message) && <p className='error'>{error?.message}</p>}
+                        {(showError && !error?.message) && <p className='error'>Something went wrong</p>}
 
+                        {
+                            loading && <i className="spinner-auth"><Spinner /></i>
+                        }
                         <button type='submit' className='auth-btn'>{isSignup ? 'Sign Up' : 'Log in'} </button>
                         {
                             isSignup && <p className='light-color'>By clicking “Sign up”, you agree to our <a href='#'>terms of<br />service</a> and acknowledge that you have read and<br />understand our <a href='#'>privacy policy</a> and <a href='#'>code of conduct</a>.</p>

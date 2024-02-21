@@ -78,7 +78,6 @@ function App() {
     try {
       const localData = JSON.parse(localStorage.getItem('Profile'))
       if (localData?.data && localData?.token) {
-        console.log("dsddfsf");
         dispatch(setCurrentUser(localData))
       }
     } catch (err) {

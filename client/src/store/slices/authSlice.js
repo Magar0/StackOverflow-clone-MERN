@@ -7,8 +7,10 @@ export const signup = createAsyncThunk('auth/signup', async (authData, { rejectW
         localStorage.setItem('Profile', JSON.stringify(response.data));
         return response.data;
     } catch (error) {
-        if (error.response.data) {
+        if (error.response?.data) {
             return rejectWithValue(error.response.data);
+        } else if (error.message) {
+            return rejectWithValue({ message: error.message });
         } else {
             return rejectWithValue({ message: 'Something went wrong. Please try again later.' });
         }
@@ -22,8 +24,10 @@ export const login = createAsyncThunk('auth/login', async (authData, { rejectWit
         localStorage.setItem('Profile', JSON.stringify(response.data));
         return response.data;
     } catch (error) {
-        if (error.response.data) {
+        if (error.response?.data) {
             return rejectWithValue(error.response.data);
+        } else if (error.message) {
+            return rejectWithValue({ message: error.message });
         } else {
             return rejectWithValue({ message: 'Something went wrong. Please try again later.' });
         }
@@ -72,6 +76,7 @@ const authSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(login.rejected, (state, action) => {
+                console.log(action.payload);
                 state.loading = false;
                 state.error = action.payload;
             })

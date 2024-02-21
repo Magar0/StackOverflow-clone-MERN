@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Spinner from '../../component/spinner/Spinner';
 
 import "./askQuestion.css"
 import { askQuestions, fetchAllQuestion } from "../../store/slices/questionSlice";
@@ -14,6 +15,7 @@ const AskQuestion = () => {
     const navigate = useNavigate()
     const dispacth = useDispatch();
     const User = useSelector(state => state.currentUser)
+    const { loading } = useSelector(state => state.questions)
 
     function trimWithOneSpace(str) {
         return str.replace(/^\s+|\s+$/g, "") // Trim leading and trailing spaces
@@ -68,6 +70,9 @@ const AskQuestion = () => {
 
                         </div>
                         <input type="submit" value="Post Your question" className="review-btn" />
+                        {
+                            loading && <i className="spinner-auth"><Spinner /></i>
+                        }
                     </form>
                 </div>
             </div>

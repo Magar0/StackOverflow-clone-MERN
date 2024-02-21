@@ -6,7 +6,6 @@ const API = axios.create({ baseURL: URL })
 API.interceptors.request.use((req) => {
     try {
         const user = JSON.parse(localStorage.getItem('Profile'))
-        console.log(user);
         if (user?.data || user?.token) {
             req.headers.Authorization = `Bearer ${user.token}`
         }
